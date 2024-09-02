@@ -1,0 +1,14 @@
+069ce9031c41b03a8a38e5bd45a0260d *DESCRIPTION
+8d512af87af2e8d258c9657b12883eb2 *NAMESPACE
+26bcccb588070d4401d041570536baca *R/function.Measurement_Error.R
+8d0b9c07b614ad5dedf34ae3a2005dac *R/function.Repeated_Measures.R
+00790453e5a31f3d71e9fe1fdb9070be *R/function.Time_Series.R
+e3d4d02b9fd7f5f9e330c5611af7889d *R/function.rbind_different_column_numbers.R
+42f841e2ecea181ff0045024afc08a7d *R/function.read_data.R
+956f4027207cfb251ebae6d3638f9abd *R/round_near.R
+025ab956647d904a5405b94d4f739eb9 *man/function.Measurement_Error.Rd
+594758ff2dbc34208b1408cde53883c2 *man/function.Repeated_Measures.Rd
+ba091c516891b4d17a54ed941c59ee6e *man/function.Time_Series.Rd
+52fedc636d8bef7200041e8a30f36074 *man/function.rbind_different_column_numbers.Rd
+99026a1e00a87adb7a74928ad4679689 *man/function.read_data.Rd
+2ca36d2ea4f32a57681de6bb9a45fbdc *man/round_near.Rd
