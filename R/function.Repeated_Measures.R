@@ -1,5 +1,5 @@
 globalVariables(c("Time", "Average", "outcome", "subject_id", "time_of_measurement", "group"), "EQUALrepeat", add = TRUE)
-function.Repeated_Measures <- function(rv){
+function.Repeated_Measures <- function(Predefined_lists, rv){
   # Lists
   plan <- {cbind.data.frame(
     analysis_number = paste0("AN", formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0)),
@@ -49,7 +49,7 @@ function.Repeated_Measures <- function(rv){
                                 paste0('c("', paste0(rv$entry[[5]], collapse = '", "'), '")'),
                                 paste0('"',rv$entry[[5]],'"')), '\n',
     'rv$same_row_different_row <- "', rv$same_row_different_row, '"\n',
-    'AN', formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0), '_results <- function.',rv$first_menu_choice,'(rv)', '\n',
+    'AN', formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0), '_results <- function.',rv$first_menu_choice,'(Predefined_lists, rv)', '\n',
     if(length(rv$plan) == 0){
       'if (TRUE %in% (AN0001_results$plots_list != "")) {invisible(file.rename(AN0001_results$plots_list, paste0(AN0001_results$plots_list,"_copy")))}
 '

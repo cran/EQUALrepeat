@@ -7,9 +7,10 @@ Calculate Measurement Error
 Calculates the intra-rater reliability for categorical data using \pkg{irr} and the concordance correlation coefficient and the information required for creating Bland-Altman plots using \pkg{DescTools}.
 }
 \usage{
-function.Measurement_Error(rv)
+function.Measurement_Error(Predefined_lists, rv)
 }
 \arguments{
+\item{Predefined_lists}{A list supplied by 'EQUAL-STATS' application}
 \item{rv}{A list supplied by 'EQUAL-STATS' application based on user input}
 }
 \value{
@@ -192,5 +193,5 @@ rv$second_menu_choice <- "EQUAL-STATS choice"
 rv$entry[[1]] <- "Mobility score at 6 months"
 rv$entry[[2]] <- "Mobility score at 12 months"
 # Final function ####
-Results <- function.Measurement_Error(rv)
+Results <- function.Measurement_Error(Predefined_lists, rv)
 }

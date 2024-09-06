@@ -2,8 +2,8 @@ Package: EQUALrepeat
 Type: Package
 Title: Algorithm Driven Time Series Analysis for Researchers without
         Coding Skills
-Version: 0.3.0
-Date: 2024-08-20
+Version: 0.4.0
+Date: 2024-09-05
 Authors@R: person("Kurinchi", "Gurusamy", role = c("aut", "cre"), email = "k.gurusamy@ucl.ac.uk")
 Author: Kurinchi Gurusamy [aut, cre]
 Maintainer: Kurinchi Gurusamy <k.gurusamy@ucl.ac.uk>
@@ -14,7 +14,9 @@ Description: Support functions for R-based 'EQUAL-STATS' software which automati
 License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://sites.google.com/view/equal-group/home
+Note: This update fixes bugs noted because of global variables not
+        being recognised as global variables in some environments.
 NeedsCompilation: no
-Packaged: 2024-08-27 15:19:08 UTC; kurin
+Packaged: 2024-09-06 15:14:50 UTC; kurin
 Repository: CRAN
-Date/Publication: 2024-09-02 12:10:05 UTC
+Date/Publication: 2024-09-06 16:10:12 UTC

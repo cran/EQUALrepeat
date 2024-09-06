@@ -7,9 +7,10 @@ Analysis Time Series Data
 Performs analysis of time series data and predict the variables over time. It takes into account the seasonality and trend of data and uses \pkg{forecast}, \pkg{vars}, \pkg{urca} to make the predictions. It uses \pkg{ggplot2} to create plots.
 }
 \usage{
-function.Time_Series(rv)
+function.Time_Series(Predefined_lists, rv)
 }
 \arguments{
+\item{Predefined_lists}{A list supplied by 'EQUAL-STATS' application}
 \item{rv}{A list supplied by 'EQUAL-STATS' application based on user input}
 }
 \value{
@@ -138,5 +139,5 @@ rv$entry[[4]] <- ""
 rv$entry[[5]] <- "Univariate"
 rv$entry[[6]] <- 10
 # Final function ####
-Results <- function.Time_Series(rv)
+Results <- function.Time_Series(Predefined_lists, rv)
 }

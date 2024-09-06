@@ -1,5 +1,5 @@
 globalVariables(c("ACF", "Lag"), "EQUALrepeat", add = TRUE)
-function.Time_Series <- function(rv){
+function.Time_Series <- function(Predefined_lists, rv){
   # Lists
   plan <- {cbind.data.frame(
     analysis_number = paste0("AN", formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0)),
@@ -50,7 +50,7 @@ function.Time_Series <- function(rv){
                                 paste0('c("', paste0(rv$entry[[5]], collapse = '", "'), '")'),
                                 paste0('"',rv$entry[[5]],'"')), '\n',
     'rv$entry[[6]] <- ', paste0(rv$entry[[6]], '\n'),
-    'AN', formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0), '_results <- function.',rv$first_menu_choice,'(rv)', '\n',
+    'AN', formatC((length(rv$plan) + 1), width = 4, format = "d", flag = 0), '_results <- function.',rv$first_menu_choice,'(Predefined_lists, rv)', '\n',
     if(length(rv$plan) == 0){
       'if (TRUE %in% (AN0001_results$plots_list != "")) {invisible(file.rename(AN0001_results$plots_list, paste0(AN0001_results$plots_list,"_copy")))}
 '
@@ -517,7 +517,7 @@ function.Time_Series <- function(rv){
     })
     names(data_converted) <- colnames(rv$import_data$data)
     data_converted <- do.call(cbind.data.frame, data_converted)
-    data <- data_converted[,c(rv$entry[[1]], rv$entry[[2]], rv$entry[[3]])]
+    data <- data_converted[,c(as.numeric(rv$entry[[1]]), rv$entry[[2]], rv$entry[[3]])]
     sort_order <- order(as.numeric(data[,rv$entry[[2]]]) + as.numeric(data[,rv$entry[[3]]]))
   } else {
     data <- data_converted[,c(rv$entry[[1]], rv$entry[[2]])]

@@ -7,9 +7,10 @@ Compare Differences between Repeated Measurements
 Calculates the skewness and kurtosis and results of Shapiro-Wilk test and Kolmogrov-Smirnov tests using \pkg{DescTools} and \pkg{stats} to determine normality. It uses the the appropriate tests from \pkg{stats}, \pkg{DescTools}, and \pkg{rstatix} to compare differences over time. For quantitative data, it is also possible to perform ANCOVA, i.e., compare the differences in change in measurements over time between groups. It uses \pkg{ggplot2} to create plots and \pkg{cowplot} to combine multiple plots.
 }
 \usage{
-function.Repeated_Measures(rv)
+function.Repeated_Measures(Predefined_lists, rv)
 }
 \arguments{
+\item{Predefined_lists}{A list supplied by 'EQUAL-STATS' application}
 \item{rv}{A list supplied by 'EQUAL-STATS' application based on user input}
 }
 \value{
@@ -204,5 +205,5 @@ rv$entry[[4]] <- ""
 rv$entry[[5]] <- "0.05"
 rv$same_row_different_row <- "Same row"
 # Final function ####
-Results <- function.Repeated_Measures(rv)
+Results <- function.Repeated_Measures(Predefined_lists, rv)
 }
