@@ -4,7 +4,7 @@
 Calculate Measurement Error
 }
 \description{
-Calculates the intra-rater reliability for categorical data using \pkg{irr} and the concordance correlation coefficient and the information required for creating Bland-Altman plots using \pkg{DescTools}.
+Calculates the intra-rater reliability for categorical data, concordance correlation coefficient and the information required for creating Bland-Altman plots using \pkg{DescTools}.
 }
 \usage{
 function.Measurement_Error(Predefined_lists, rv)
@@ -36,9 +36,9 @@ This is part of a suite of functions required to allow 'EQUAL-STATS' program to 
 }
 \seealso{
 function.submit_choices
-\code{\link[irr:kendall]{irr::kendall()}}
-\code{\link[irr:kappa2]{irr::kappa2()}}
-\code{\link[irr:kappam.fleiss]{irr::kappam.fleiss()}}
+\code{\link[DescTools:KendallW]{DescTools::KendallW()}}
+\code{\link[DescTools:CohenKappa]{DescTools::CohenKappa()}}
+\code{\link[DescTools:KappaM]{DescTools::KappaM()}}
 \code{\link[DescTools:CCC]{DescTools::CCC()}}
 }
 \concept{ EQUAL-STATS }
@@ -183,7 +183,6 @@ data_file_path = paste0(tempdir(), "/data.csv")
 write.csv(data, file = data_file_path, row.names = FALSE, na = "")
 # Load the necessary packages and functions ####
 library(stringr)
-library(irr)
 library(DescTools)
 library(ggplot2)
 rv$import_data <- function.read_data(data_file_path)

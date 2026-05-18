@@ -55,7 +55,7 @@ function.Measurement_Error <- function(Predefined_lists, rv){
     if (rv$entry[[1]] %in% rv$import_data$categorical) {
       if (rv$entry[[1]] %in% rv$import_data$ordinal) {
         # If ordinal, Kendall correlation coefficient
-        concordance_correlation_coefficient <- kendall(data, correct=TRUE)
+        concordance_correlation_coefficient <- DescTools::KendallW(data, correct = TRUE, test = TRUE)
         correlation_coefficient <- data.frame(
           `Correlation coefficient` = concordance_correlation_coefficient$value,
           `P value` = concordance_correlation_coefficient$p.value,
@@ -64,19 +64,27 @@ function.Measurement_Error <- function(Predefined_lists, rv){
         correlation_type <- "Concordance coefficient (Kendall)"
       } else if (nlevels(data[,1]) == 2 && nlevels(data[,2]) == 2) {
         # if both rv$variables are binary, Cohen's kappa
-        concordance_correlation_coefficient <- kappa2(data, weight="unweighted",sort.levels=TRUE)
+        concordance_correlation_coefficient <- DescTools::CohenKappa(data[,1], data[,2], conf.level = 0.95)
+        # p value must be calculated from the 95% confidence intervals
+        se_kappa <- as.numeric((concordance_correlation_coefficient[3] - concordance_correlation_coefficient[2]) / 3.92)
+        z_stat <-  as.numeric(concordance_correlation_coefficient[1] / se_kappa)
+        p_value <- 2 * pnorm(abs(z_stat), lower.tail = FALSE)
         correlation_coefficient <- data.frame(
-          `Correlation coefficient` = concordance_correlation_coefficient$value,
-          `P value` = concordance_correlation_coefficient$p.value,
+          `Correlation coefficient` = concordance_correlation_coefficient[1],
+          `P value` = p_value,
           check.names = FALSE
         )
         correlation_type <- "Concordance coefficient (Cohen's kappa)"
       } else {
         # more than two levels - it is Fleiss kappa
-        concordance_correlation_coefficient <- kappam.fleiss(data, exact = FALSE, detail = FALSE)
+        concordance_correlation_coefficient <- DescTools::KappaM(data, method = "Fleiss", conf.level = 0.95)
+        # p value must be calculated from the 95% confidence intervals
+        se_kappa <- as.numeric((concordance_correlation_coefficient[3] - concordance_correlation_coefficient[2]) / 3.92)
+        z_stat <-  as.numeric(concordance_correlation_coefficient[1] / se_kappa)
+        p_value <- 2 * pnorm(abs(z_stat), lower.tail = FALSE)
         correlation_coefficient <- data.frame(
-          `Correlation coefficient` = concordance_correlation_coefficient$value,
-          `P value` = concordance_correlation_coefficient$p.value,
+          `Correlation coefficient` = concordance_correlation_coefficient[1],
+          `P value` = p_value,
           check.names = FALSE
         )
         correlation_type <- "Concordance coefficient (Fleiss kappa)"

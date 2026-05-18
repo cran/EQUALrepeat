@@ -1,12 +1,12 @@
-af75826318f1bd65fb5c9cf2b29acb2a *DESCRIPTION
-8d512af87af2e8d258c9657b12883eb2 *NAMESPACE
-fd8312e40c4aca765a9d4ef546eaa027 *R/function.Measurement_Error.R
+685e593ac872972877041b4c20cf7156 *DESCRIPTION
+a5bced1d5ed8fec23607a88854bc555e *NAMESPACE
+d1042797065932722f73182b104e0945 *R/function.Measurement_Error.R
 9c47fe0132c2836056ccdf67f83fc1f8 *R/function.Repeated_Measures.R
 aa11171a63ba7008c9c16cb9af45f3ca *R/function.Time_Series.R
 e3d4d02b9fd7f5f9e330c5611af7889d *R/function.rbind_different_column_numbers.R
 42f841e2ecea181ff0045024afc08a7d *R/function.read_data.R
 956f4027207cfb251ebae6d3638f9abd *R/round_near.R
-3d9c6facee8ea4d7066d4df0d7ca8083 *man/function.Measurement_Error.Rd
+f1e201df2cd284b89813f892670dd7cb *man/function.Measurement_Error.Rd
 92c1c08055643842c4e5f2c5793e3787 *man/function.Repeated_Measures.Rd
 2f779a481efda965265bb3c13d8d2124 *man/function.Time_Series.Rd
 52fedc636d8bef7200041e8a30f36074 *man/function.rbind_different_column_numbers.Rd
